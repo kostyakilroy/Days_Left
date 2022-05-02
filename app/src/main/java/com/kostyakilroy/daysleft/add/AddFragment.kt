@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -45,70 +47,6 @@ class AddFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(AddViewModel::class.java)
 
 
-//        setDatePicker = view.findViewById(R.id.select_date_field)
-//        editDatePicker = view.findViewById(R.id.edit_date_field)
-//
-//        val dateEvent: TextInputEditText = view.findViewById(R.id.add_date_name)
-//
-//
-//
-//
-//        val datePicker =
-//            MaterialDatePicker.Builder.datePicker()
-//                .setTitleText("Select date")
-//                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-//                .build()
-//
-//        setDatePicker.setEndIconOnClickListener {
-//
-//
-//            datePicker.show(this@AddFragment.parentFragmentManager, "DialogDate")
-//
-//
-//        }
-//
-//        datePicker.addOnPositiveButtonClickListener {
-//            val myFormat = "dd.MM.yyyy"
-//            val sdf = SimpleDateFormat(myFormat, Locale.ROOT)
-//            val date = sdf.format(Date(datePicker.selection!!))
-//            editDatePicker.setText(date)
-//            viewModel.cal = datePicker.selection!!
-//
-//        }
-//
-//        setDatePicker.editText?.addTextChangedListener(object : TextWatcher{
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                setDatePicker.error = null
-//                setDatePicker.isErrorEnabled = false
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                setDatePicker.error = null
-//                setDatePicker.isErrorEnabled = false
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                setDatePicker.error = null
-//                setDatePicker.isErrorEnabled = false
-//            }
-//
-//        })
-//
-//        val addButton: Button = view.findViewById(R.id.add_date_button)
-//        addButton.setOnClickListener {
-//            when {
-//                dateEvent.text.toString().isEmpty()-> {
-//                    dateEvent.error = "Please Enter Date Event name"
-//                }
-//                editDatePicker.text.toString().isEmpty()-> {
-//                    setDatePicker.setError("Plese chose a data")
-//                }
-//                else -> {
-//                    viewModel.addDateToDatabase(dateEvent.text!!)
-//                }
-//            }
-//        }
-
         nameFocusListener()
         dateFocusListener()
 
@@ -136,14 +74,17 @@ class AddFragment : Fragment() {
         }
 
         binding.addButton.setOnClickListener {
+
             submitDate()
             if (binding.dateFieldLayout.error == null && binding.nameFieldLayout.error == null) {
                 lifecycleScope.launch {
                     val date = Dates(
                         0,
                         binding.nameFieldEdit.text.toString(),
+                        binding.descriptionFieldEdit.text.toString(),
                         Calendar.getInstance(Locale.ROOT).time,
-                        Date(datePicker.selection!!)
+                        Date(datePicker.selection!!),
+                        checkedChip(binding.chipGroup)
                     )
                     dao.insert(date)
                     view.findNavController().navigate(R.id.action_addFragment_to_mainFragment)
@@ -154,12 +95,20 @@ class AddFragment : Fragment() {
         return view
     }
 
+    private fun checkedChip(chipGroup: ChipGroup): Int {
+        var chipId = 0
+        for (chip in 0 until chipGroup.childCount) {
+            val child = chipGroup.getChildAt(chip)
+            if (child is Chip ) {
+                if (child.isChecked) chipId = chip
+            }
+        }
+        return chipId
+    }
 
     private fun submitDate() {
         binding.nameFieldLayout.error = validName()
         binding.dateFieldLayout.error = validDate()
-
-
     }
 
 

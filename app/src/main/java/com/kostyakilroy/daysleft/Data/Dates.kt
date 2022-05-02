@@ -11,6 +11,8 @@ data class Dates(
     @PrimaryKey(autoGenerate = true)
     val dateId: Int,
     val dateName: String,
+    val description: String?,
     val startDate: Date,
-    val endDate: Date
+    val endDate: Date,
+    val importance: Int
 )

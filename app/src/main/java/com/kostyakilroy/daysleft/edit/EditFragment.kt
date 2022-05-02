@@ -8,10 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.kostyakilroy.daysleft.Data.DatesDatabase
 import com.kostyakilroy.daysleft.R
+import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 
@@ -23,7 +27,9 @@ class EditFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
+        val editToolbar: Toolbar = view.findViewById(R.id.editToolbar)
         val dateId = arguments?.getInt("id")
+
 
         val application = requireNotNull(this.activity).application
         val dao = DatesDatabase.getDataBase(application).datesDao()
@@ -31,6 +37,19 @@ class EditFragment : Fragment() {
 
         val imageBG = view.findViewById<ImageView>(R.id.imageView)
 
+        editToolbar.inflateMenu(R.menu.toolbar)
+        editToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_delete -> {
+                    lifecycleScope.launch {
+                        dao.delete(data.value!!)
+                    }
+                    view.findNavController().navigate(R.id.action_editFragment_to_mainFragment)
+                    true
+                }
+                else -> false
+            }
+        }
 
         val dateName = view.findViewById<TextView>(R.id.date_name)
         val dateDate = view.findViewById<TextView>(R.id.date_date)

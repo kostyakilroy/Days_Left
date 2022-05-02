@@ -12,8 +12,6 @@ class MainActivity : AppCompatActivity(), VisabilityInterface {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById<MaterialToolbar>(R.id.myToolbar))
-        DatesListAdapter().setVisibilityInterface(this@MainActivity)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
