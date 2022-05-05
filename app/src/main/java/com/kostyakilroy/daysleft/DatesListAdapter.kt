@@ -11,6 +11,7 @@ import android.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.kostyakilroy.daysleft.Data.Dates
@@ -21,6 +22,7 @@ import java.util.concurrent.TimeUnit
 
 class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
     private lateinit var visibilityInterface: VisabilityInterface
+    private val dateManager = DateManager()
 
     fun setVisibilityInterface(visibilityInterface: VisabilityInterface) {
         this.visibilityInterface = visibilityInterface
@@ -72,9 +74,10 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
             else -> holder.bgImage.setImageResource(R.drawable.phase_5)
         }
 
+        val daysToEnd = dateManager.daysLeft(current)
 
         holder.dateName.text = current.dateName
-        holder.dateDate.text = holder.itemView.context.getString(R.string.days_left, daysLeft)
+        holder.dateDate.text = holder.itemView.context.getString(R.string.days_left, daysToEnd)
 
         holder.card.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_mainFragment_to_editFragment, bundleOf("id" to current.dateId))
@@ -111,5 +114,4 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
         private const val IMPORTANCE_2 = 1
         private const val IMPORTANCE_3 = 2
     }
-
 }

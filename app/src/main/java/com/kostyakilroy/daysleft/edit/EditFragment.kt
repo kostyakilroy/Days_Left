@@ -13,7 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import com.google.android.material.appbar.MaterialToolbar
 import com.kostyakilroy.daysleft.Data.DatesDatabase
+import com.kostyakilroy.daysleft.DateManager
 import com.kostyakilroy.daysleft.R
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
@@ -27,7 +29,7 @@ class EditFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
-        val editToolbar: Toolbar = view.findViewById(R.id.editToolbar)
+        val editToolbar: MaterialToolbar = view.findViewById(R.id.editToolbar)
         val dateId = arguments?.getInt("id")
 
 
@@ -53,18 +55,35 @@ class EditFragment : Fragment() {
 
         val dateName = view.findViewById<TextView>(R.id.date_name)
         val dateDate = view.findViewById<TextView>(R.id.date_date)
+        val startDate = view.findViewById<TextView>(R.id.start_date)
+        val finishDate = view.findViewById<TextView>(R.id.finish_date)
+        val description = view.findViewById<TextView>(R.id.description)
 
 
+//        data.observe(viewLifecycleOwner, Observer {
+//            it.let {
+//                dateName.text = it.dateName
+//                val today = Calendar.getInstance().time
+//                val offsetDateTime = TimeZone.getDefault().getOffset(today.time)
+//                val date = it.endDate.time - today.time - offsetDateTime.toLong()
+//                val daysLeft = TimeUnit.MILLISECONDS.toDays(date)
+//                dateDate.text = getString(R.string.days_left, daysLeft)
+//            }
+//        })
+        val dateManager = DateManager()
         data.observe(viewLifecycleOwner, Observer {
             it.let {
+                val daysLeft = dateManager.daysLeft(it)
                 dateName.text = it.dateName
-                val today = Calendar.getInstance().time
-                val offsetDateTime = TimeZone.getDefault().getOffset(today.time)
-                val date = it.endDate.time - today.time - offsetDateTime.toLong()
-                val daysLeft = TimeUnit.MILLISECONDS.toDays(date)
                 dateDate.text = getString(R.string.days_left, daysLeft)
+                startDate.text = getString(R.string.start_date, it.startDate.toGMTString())
+                finishDate.text = getString(R.string.finish_date, it.endDate.toGMTString())
+                if (it.description == null) {
+                    description.visibility = View.GONE
+                } else description.text = it.description
             }
         })
+
 
         return view
     }
