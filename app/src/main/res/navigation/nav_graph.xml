@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.kostyakilroy.daysleft.MainFragment"
-        android:label="fragment_main"
+        android:label="Days Left"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_addFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.kostyakilroy.daysleft.add.AddFragment"
-        android:label="fragment_add"
+        android:label="Добавить"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_mainFragment"
@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/editFragment"
         android:name="com.kostyakilroy.daysleft.edit.EditFragment"
-        android:label="fragment_edit"
+        android:label="Изменить"
         tools:layout="@layout/fragment_edit" >
         <action
             android:id="@+id/action_editFragment_to_mainFragment"

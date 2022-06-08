@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="days_left">Дней %1$d</string>
+    <string name="start_date">Начальная дата: %1$s</string>
+    <string name="finish_date">Конечная дата: %1$s</string>
+    <string name="description">Описание:</string>
 </resources>
