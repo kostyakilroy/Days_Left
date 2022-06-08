@@ -9,7 +9,7 @@
     android:layout_margin="12dp"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="4dp"
-    card_view:cardBackgroundColor="@color/black">
+    card_view:cardBackgroundColor="@color/md_theme_light_onBackground">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -44,18 +44,18 @@
                 android:textAllCaps="true"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/white"
+                android:textColor="@color/md_theme_light_onPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/date_date"
+                android:id="@+id/date_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="28"
                 android:textAllCaps="true"
-                android:textColor="@color/white"
+                android:textColor="@color/md_theme_light_onPrimary"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 

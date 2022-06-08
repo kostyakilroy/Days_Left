@@ -1,23 +1,19 @@
 package com.kostyakilroy.daysleft
 
-import android.icu.util.Calendar
-import android.icu.util.TimeZone
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.card.MaterialCardView
 import com.kostyakilroy.daysleft.Data.Dates
-import java.sql.Time
+import java.text.SimpleDateFormat
 import java.time.*
 import java.time.temporal.ChronoUnit
-import java.util.concurrent.TimeUnit
 
 class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
     private lateinit var visibilityInterface: VisabilityInterface
@@ -36,7 +32,7 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val layout = when (viewType) {
-            IMPORTANCE_1 -> R.layout.recyclerview_item
+            IMPORTANCE_1 -> R.layout.recycler_view_new
             IMPORTANCE_2 -> R.layout.recyclerview_item_2
             else -> R.layout.recyclerview_item_3
         }
@@ -72,21 +68,24 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
             else -> holder.bgImage.setImageResource(R.drawable.phase_5)
         }
 
+        val format = SimpleDateFormat("d MMMM yyyy")
+        val formattedEndDate = format.format(current.endDate).toString()
+
 
         holder.dateName.text = current.dateName
-        holder.dateDate.text = holder.itemView.context.getString(R.string.days_left, daysLeft)
+//        holder.dateDate.text = formattedEndDate
 
         holder.card.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_mainFragment_to_editFragment, bundleOf("id" to current.dateId))
         }
 
-        holder.card.setOnLongClickListener { _ ->
-//            val application = holder.itemView
-//            val toolbar = application.findViewById<MaterialToolbar>(R.id.myToolbar)
-//            toolbar.visibility = View.VISIBLE
-            visibilityInterface.onClick()
-            return@setOnLongClickListener true
-        }
+//        holder.card.setOnLongClickListener { _ ->
+////            val application = holder.itemView
+////            val toolbar = application.findViewById<MaterialToolbar>(R.id.myToolbar)
+////            toolbar.visibility = View.VISIBLE
+//            visibilityInterface.onClick()
+//            return@setOnLongClickListener true
+//        }
     }
 
     override fun getItemCount() = data.size
@@ -100,9 +99,9 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val card: CardView = itemView.findViewById(R.id.card_view)
+        val card: MaterialCardView = itemView.findViewById(R.id.card_view)
         val dateName: TextView = itemView.findViewById(R.id.date_name)
-        val dateDate: TextView = itemView.findViewById(R.id.date_date)
+//        val dateDate: TextView = itemView.findViewById(R.id.date_date)
         val bgImage: ImageView = itemView.findViewById(R.id.imageView)
     }
 

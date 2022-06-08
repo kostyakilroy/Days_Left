@@ -52,7 +52,7 @@ class EditFragment : Fragment() {
         }
 
         val dateName = view.findViewById<TextView>(R.id.date_name)
-        val dateDate = view.findViewById<TextView>(R.id.date_date)
+        val dateDate = view.findViewById<TextView>(R.id.date_left)
 
 
         data.observe(viewLifecycleOwner, Observer {
