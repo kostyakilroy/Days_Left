@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +31,7 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val layout = when (viewType) {
-            IMPORTANCE_1 -> R.layout.recycler_view_new
+            IMPORTANCE_1 -> R.layout.recyclerview_item
             IMPORTANCE_2 -> R.layout.recyclerview_item_2
             else -> R.layout.recyclerview_item_3
         }
@@ -61,21 +60,22 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
         val daysLeft = if (hoursLeft >= 0) hoursLeft / 24 + 1 else 0
 
         when (percentage.toInt()) {
-            in 0..20 -> holder.bgImage.setImageResource(R.drawable.phase_1)
-            in 21..40 -> holder.bgImage.setImageResource(R.drawable.phase_2)
-            in 41..60 -> holder.bgImage.setImageResource(R.drawable.phase_3)
-            in 61..80 -> holder.bgImage.setImageResource(R.drawable.phase_4)
-            else -> holder.bgImage.setImageResource(R.drawable.phase_5)
+            in 0..20 -> holder.moodImage.setImageResource(R.drawable.phase_1)
+            in 21..40 -> holder.moodImage.setImageResource(R.drawable.phase_2)
+            in 41..60 -> holder.moodImage.setImageResource(R.drawable.phase_3)
+            in 61..80 -> holder.moodImage.setImageResource(R.drawable.phase_4)
+            else -> holder.moodImage.setImageResource(R.drawable.phase_5)
         }
 
-        val format = SimpleDateFormat("d MMMM yyyy")
+        val format = SimpleDateFormat("dd/MM/yyyy")
         val formattedEndDate = format.format(current.endDate).toString()
 
 
+        holder.daysLeftView.text = daysLeft.toString()
         holder.dateName.text = current.dateName
-//        holder.dateDate.text = formattedEndDate
+        holder.endDateView.text = formattedEndDate
 
-        holder.card.setOnClickListener { view ->
+        holder.dateCard.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_mainFragment_to_editFragment, bundleOf("id" to current.dateId))
         }
 
@@ -99,10 +99,11 @@ class DatesListAdapter : RecyclerView.Adapter<DatesListAdapter.ViewHolder>() {
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val card: MaterialCardView = itemView.findViewById(R.id.card_view)
+        val dateCard: MaterialCardView = itemView.findViewById(R.id.dateCard)
         val dateName: TextView = itemView.findViewById(R.id.date_name)
-//        val dateDate: TextView = itemView.findViewById(R.id.date_date)
-        val bgImage: ImageView = itemView.findViewById(R.id.imageView)
+        val daysLeftView: TextView = itemView.findViewById(R.id.daysLeft)
+        val moodImage: ImageView = itemView.findViewById(R.id.moodImage)
+        val endDateView: TextView = itemView.findViewById(R.id.endDate)
     }
 
     companion object {

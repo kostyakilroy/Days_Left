@@ -37,19 +37,19 @@ class EditFragment : Fragment() {
 
         val imageBG = view.findViewById<ImageView>(R.id.imageView)
 
-        editToolbar.inflateMenu(R.menu.toolbar)
-        editToolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.action_delete -> {
-                    lifecycleScope.launch {
-                        dao.delete(data.value!!)
-                    }
-                    view.findNavController().navigate(R.id.action_editFragment_to_mainFragment)
-                    true
-                }
-                else -> false
-            }
-        }
+//        editToolbar.inflateMenu(R.menu.toolbar)
+//        editToolbar.setOnMenuItemClickListener {
+//            when (it.itemId) {
+//                R.id.action_delete -> {
+//                    lifecycleScope.launch {
+//                        dao.delete(data.value!!)
+//                    }
+//                    view.findNavController().navigate(R.id.action_editFragment_to_mainFragment)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
 
         val dateName = view.findViewById<TextView>(R.id.date_name)
         val dateDate = view.findViewById<TextView>(R.id.date_left)

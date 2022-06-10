@@ -22,20 +22,20 @@
             android:textSize="16sp"
             android:paddingBottom="12dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Событие:"
-            android:paddingBottom="5dp"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Событие:"-->
+<!--            android:paddingBottom="5dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_field_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             app:errorEnabled="true"
-            app:hintEnabled="false"
+            app:hintEnabled="true"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            style="@style/LoginTextInputLayoutStyle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name_field_edit"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:padding="15dp"
                 android:inputType="text"
-                android:hint="Увольнение"/>
+                android:hint="Событие"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -59,7 +59,8 @@
             app:errorEnabled="true"
             app:hintEnabled="false"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+            style="@style/LoginTextInputLayoutStyle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/description_field_edit"
@@ -91,7 +92,7 @@
             app:helperTextEnabled="true"
             app:helperText="Дата должна быть формата ДД.ММ.ГГГГ"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/LoginTextInputLayoutStyle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/date_field_edit"

@@ -1,163 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-    <androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="0dp">
+    android:layout_margin="16dp"
+    android:background="@drawable/shadow">
 
-    <FrameLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/dateCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:strokeWidth="3dp"
+        card_view:strokeColor="@android:color/black">
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            card_view:cardBackgroundColor="#000000"
-            card_view:cardCornerRadius="12dp" />
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
-            card_view:cardCornerRadius="12dp"
-            card_view:strokeWidth="3dp"
-            card_view:strokeColor="#000000"
-            card_view:cardBackgroundColor="#F2F2F2">
+            <ImageView
+                android:id="@+id/moodImage"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/phase_3"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/imageView"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="200dp"-->
-<!--                    android:scaleType="centerCrop"-->
-<!--                    android:src="@drawable/phase_3"-->
-<!--                    card_view:layout_constraintEnd_toEndOf="parent"-->
-<!--                    card_view:layout_constraintStart_toStartOf="parent"-->
-<!--                    card_view:layout_constraintTop_toTopOf="parent" />-->
-
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="3dp"-->
-<!--                    android:background="#000000"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/date_name"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="14dp"-->
-<!--                    android:fontFamily="@font/raleway_black_italic"-->
-<!--                    android:text="Мудрость это то что приходит с опытом"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="30sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/date_left"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/opensans_bold"-->
-<!--                    android:padding="14dp"-->
-<!--                    android:text="Дней 28"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:background="#bf9cf2"-->
-<!--                    android:textSize="30sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/date_date"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="12dp"-->
-<!--                    android:layout_marginStart="14dp"-->
-<!--                    android:layout_marginBottom="14dp"-->
-<!--                    android:fontFamily="@font/opensans_regular"-->
-<!--                    android:text="12 Июня 2022"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="14sp" />-->
-
-
-<!--            </LinearLayout>-->
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <View
+                android:id="@+id/plank"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="3dp"
+                android:background="#000000"
+                card_view:layout_constraintBottom_toBottomOf="@id/moodImage" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/phase_3"
-                    card_view:layout_constraintEnd_toEndOf="parent"
-                    card_view:layout_constraintStart_toStartOf="parent"
-                    card_view:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/orange_container"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:background="#FF9A6E"
+                card_view:layout_constraintTop_toBottomOf="@id/plank"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintBottom_toTopOf="@id/plank2" />
 
-                <View
-                    android:id="@+id/plank"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:background="#000000"
-                    card_view:layout_constraintBottom_toBottomOf="@id/imageView" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="Дней осталось"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/orange_container" />
 
-                <TextView
-                    android:id="@+id/date_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="14dp"
-                    android:fontFamily="@font/raleway_black_italic"
-                    android:text="Мудрость это то что приходит с опытом"
-                    android:textColor="#000000"
-                    android:textSize="30sp"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintEnd_toEndOf="parent"
-                    card_view:layout_constraintStart_toStartOf="parent"
-                    card_view:layout_constraintTop_toBottomOf="@id/plank" />
+            <TextView
+                android:id="@+id/daysLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="48dp"
+                android:fontFamily="@font/play_bold"
+                android:text="22"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/orange_container" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/date_date"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="12dp"-->
-<!--                    android:layout_marginStart="14dp"-->
-<!--                    android:layout_marginBottom="14dp"-->
-<!--                    android:fontFamily="@font/opensans_regular"-->
-<!--                    android:text="12 Июня 2022"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="14sp"-->
-<!--                    card_view:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    card_view:layout_constraintStart_toStartOf="parent"-->
-<!--                    card_view:layout_constraintTop_toBottomOf="@id/date_name" />-->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_calendar"
+                android:layout_marginTop="36dp"
+                android:layout_marginStart="16dp"
+                card_view:layout_constraintTop_toTopOf="@id/orange_container"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:tint="@android:color/black" />
 
-                <TextView
-                    android:id="@+id/date_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_bold"
-                    android:padding="14dp"
-                    android:background="#bf9cf2"
-                    android:text="D28"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    card_view:layout_constraintEnd_toEndOf="parent"
-                    card_view:layout_constraintBottom_toTopOf="@id/plank" />
+            <View
+                android:id="@+id/plank3"
+                android:layout_width="3dp"
+                android:layout_height="0dp"
+                android:background="#000000"
+                card_view:layout_constraintTop_toBottomOf="@id/plank"
+                card_view:layout_constraintStart_toEndOf="@id/orange_container"
+                card_view:layout_constraintBottom_toTopOf="@id/plank2"/>
+
+            <View
+                android:id="@+id/purple_container"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="#B76EFF"
+                card_view:layout_constraintTop_toBottomOf="@id/plank"
+                card_view:layout_constraintStart_toEndOf="@id/plank3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="Конечная дата"
+                card_view:layout_constraintStart_toStartOf="@id/purple_container"
+                card_view:layout_constraintTop_toTopOf="@id/purple_container" />
+
+            <TextView
+                android:id="@+id/endDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/play_bold"
+                android:text="22/07/2022"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                card_view:layout_constraintStart_toStartOf="@id/purple_container"
+                card_view:layout_constraintTop_toTopOf="@id/purple_container" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/plank2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#000000"
+                card_view:layout_constraintTop_toBottomOf="@id/orange_container" />
 
-        </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="Конечная дата"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/plank2" />
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/date_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/play_bold"
+                android:text="Мудрость это то что приходит с опытом"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/plank2" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>
