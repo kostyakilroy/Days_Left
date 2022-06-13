@@ -84,13 +84,15 @@ class EditFragment : Fragment() {
                 }
 
                 dateName.setContentText(it.dateName)
-                description.setContentText(it.description)
+                description.setContentText(
+                    if (it.description == "") "Нет описания" else it.description
+                )
                 startDate.setContentText(it.startDate.toString())
                 endDate.setContentText(it.endDate.toString())
                 importance.setContentText(
                     when (it.importance) {
-                        1 -> "Первая"
-                        2 -> "Вторая"
+                        0 -> "Первая"
+                        1 -> "Вторая"
                         else -> "Третья"
                     }
                 )
