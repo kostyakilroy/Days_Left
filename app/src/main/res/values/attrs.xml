@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CustomEditText">
-        <attr name="nameText" format="string" />
-        <attr name="contentText" format="string"/>
+    <declare-styleable name="CustomInformationContainer">
+        <attr name="informationName" format="string" />
+        <attr name="informationContent" format="string"/>
     </declare-styleable>
 </resources>

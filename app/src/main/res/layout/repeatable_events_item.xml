@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/box_shadow">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_recurring_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:strokeWidth="3dp"
+        card_view:strokeColor="@android:color/black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/repeatable_event_item_image"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/phase_3"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/contentDesc_mood_image" />
+
+            <View
+                android:id="@+id/repeatable_event_line_one"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#000000"
+                card_view:layout_constraintTop_toBottomOf="@id/repeatable_event_item_image" />
+
+            <View
+                android:id="@+id/item_one_event_days_left_container"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:background="#FF9A6E"
+                card_view:layout_constraintTop_toBottomOf="@id/repeatable_event_line_one"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintBottom_toTopOf="@id/repeatable_event_line_two" />
+
+            <ImageView
+                android:id="@+id/repeatable_event_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_calendar"
+                android:layout_marginStart="8dp"
+                card_view:layout_constraintTop_toBottomOf="@id/repeatable_event_line_one"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintBottom_toTopOf="@id/repeatable_event_line_two"
+                card_view:tint="@android:color/black" />
+
+            <TextView
+                android:id="@+id/repeatable_event_days_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                tools:text="22"
+                card_view:layout_constraintStart_toEndOf="@id/repeatable_event_icon"
+                card_view:layout_constraintTop_toBottomOf="@id/repeatable_event_line_one"
+                card_view:layout_constraintBottom_toTopOf="@id/repeatable_event_line_two"/>
+
+            <View
+                android:id="@+id/repeatable_event_line_two"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#000000"
+                card_view:layout_constraintTop_toBottomOf="@id/item_one_event_days_left_container" />
+
+            <TextView
+                android:id="@+id/repeatable_event_event_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="9dp"
+                android:maxLines="2"
+                android:textColor="#000000"
+                tools:text="Мудрость это то что приходит с опытом"
+                card_view:layout_constraintTop_toBottomOf="@id/repeatable_event_line_two"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

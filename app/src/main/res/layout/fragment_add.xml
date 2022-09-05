@@ -1,152 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".add.AddFragment" >
-
-    <data>
-
-    </data>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.AddFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp" >
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/testText"
+        <!--        Date name container-->
+
+        <LinearLayout
+            android:id="@+id/add_container_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Создать дату"
-            android:textSize="16sp"
-            android:paddingBottom="12dp"/>
+            android:orientation="vertical"
+            android:background="@drawable/black_borders"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Событие:"-->
-<!--            android:paddingBottom="5dp"/>-->
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name_field_layout"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:errorEnabled="true"
-            app:hintEnabled="true"
-
-            style="@style/LoginTextInputLayoutStyle">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name_field_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:inputType="text"
-                android:hint="Событие"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Описание события:"
-            android:paddingBottom="5dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/description_field_layout"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:errorEnabled="true"
-            app:hintEnabled="false"
-
-
-            style="@style/LoginTextInputLayoutStyle">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/description_field_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top"
-                android:padding="15dp"
-                android:inputType="text|textMultiLine"
-                android:hint="Мне надоела эта чертова работа и я решил уволиться"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingBottom="5dp"
-            android:text="Дата события:" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/date_field_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:hintEnabled="false"
-            app:hintAnimationEnabled="false"
-            app:errorEnabled="true"
-            app:endIconMode="custom"
-            app:endIconDrawable="@drawable/ic_calendar"
-            app:endIconCheckable="true"
-            app:helperTextEnabled="true"
-            app:helperText="Дата должна быть формата ДД.ММ.ГГГГ"
-
-            style="@style/LoginTextInputLayoutStyle">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/date_field_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:hint="15.04.2022"
-                android:inputType="date" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingBottom="5dp"
-            android:text="Важность события:" />
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:selectionRequired="true"
-            app:singleSelection="true"
-            app:checkedChip="@id/chip1">
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:id="@+id/chip1"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Первая"/>
+                android:layout_marginStart="4dp"
+                android:text="@string/container_name" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:id="@+id/chip2"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_text_input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:helperText="Необходимо*"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_edittext_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Название" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!--        Description date container-->
+
+        <LinearLayout
+            android:id="@+id/add_container_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_borders"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/textview_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Вторая"/>
+                android:layout_marginStart="4dp"
+                android:text="@string/container_description" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:id="@+id/chip3"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_edittext_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textMultiLine"
+                    android:lines="4"
+                    android:gravity="top"
+                    android:hint="Описание" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!--        DatePicker container-->
+
+        <LinearLayout
+            android:id="@+id/add_container_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_borders"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Третья"/>
+                android:layout_marginStart="4dp"
+                android:text="@string/container_date" />
 
-        </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_text_input_layout_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_calendar"
+                app:helperText="Дата должна быть формата ДД.ММ.ГГГГ"
+                app:errorEnabled="true"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_edittext_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="0dp"
+                    android:inputType="date"
+                    android:maxLength="10"
+                    android:hint="15.02.2022" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!--        Importance date container-->
+
+        <LinearLayout
+            android:id="@+id/add_container_importance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_borders"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/container_importance" />
+
+            <Spinner
+                android:id="@+id/add_spinner_importance"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:spinnerMode="dialog"
+                android:entries="@array/add_spinner_importance"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_container_repeating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_borders"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/container_repeat" />
+
+            <Spinner
+                android:id="@+id/add_spinner_repeating"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:spinnerMode="dialog"
+                android:entries="@array/add_spinner_repeating"/>
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/add_add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Отслеживать" />
+            android:text="@string/add_button" />
 
     </LinearLayout>
-</layout>
+</androidx.core.widget.NestedScrollView>

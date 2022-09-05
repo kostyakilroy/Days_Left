@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/box_shadow">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_one_event_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:strokeWidth="3dp"
+        card_view:strokeColor="@android:color/black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/item_one_event_item_image"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/phase_3"
+                android:contentDescription="@string/contentDesc_mood_image"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/item_one_event_line_one"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#000000"
+                card_view:layout_constraintBottom_toBottomOf="@id/item_one_event_item_image" />
+
+            <View
+                android:id="@+id/item_one_event_days_left_container"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:background="#FF9A6E"
+                card_view:layout_constraintTop_toBottomOf="@id/item_one_event_line_one"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintBottom_toTopOf="@id/item_one_event_line_three" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="@string/days_left"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/item_one_event_days_left_container" />
+
+            <TextView
+                android:id="@+id/item_one_event_days_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="48dp"
+                tools:text="22"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/item_one_event_days_left_container" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_calendar"
+                android:layout_marginTop="36dp"
+                android:layout_marginStart="16dp"
+                card_view:layout_constraintTop_toTopOf="@id/item_one_event_days_left_container"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:tint="@android:color/black" />
+
+            <View
+                android:id="@+id/item_one_event_line_two"
+                android:layout_width="3dp"
+                android:layout_height="0dp"
+                android:background="#000000"
+                card_view:layout_constraintTop_toBottomOf="@id/item_one_event_line_one"
+                card_view:layout_constraintStart_toEndOf="@id/item_one_event_days_left_container"
+                card_view:layout_constraintBottom_toTopOf="@id/item_one_event_line_three"/>
+
+            <View
+                android:id="@+id/item_one_event_end_date_container"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="#B76EFF"
+                card_view:layout_constraintTop_toBottomOf="@id/item_one_event_line_one"
+                card_view:layout_constraintStart_toEndOf="@id/item_one_event_line_two"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="@string/event_end"
+                card_view:layout_constraintStart_toStartOf="@id/item_one_event_end_date_container"
+                card_view:layout_constraintTop_toTopOf="@id/item_one_event_end_date_container" />
+
+            <TextView
+                android:id="@+id/item_one_event_end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                tools:text="22/07/2022"
+                card_view:layout_constraintStart_toStartOf="@id/item_one_event_end_date_container"
+                card_view:layout_constraintTop_toTopOf="@id/item_one_event_end_date_container" />
+
+
+            <View
+                android:id="@+id/item_one_event_line_three"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#000000"
+                card_view:layout_constraintTop_toBottomOf="@id/item_one_event_days_left_container" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="@string/container_name"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@id/item_one_event_line_three" />
+
+            <TextView
+                android:id="@+id/item_one_event_event_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                tools:text="Мудрость это то что приходит с опытом"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/item_one_event_line_three" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

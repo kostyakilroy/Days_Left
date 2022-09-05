@@ -7,39 +7,33 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.kostyakilroy.daysleft.MainFragment"
-        android:label="Days Left"
-        tools:layout="@layout/fragment_main" >
+        android:name="com.kostyakilroy.daysleft.views.MainFragment"
+        android:label="@string/app_name" >
         <action
             android:id="@+id/action_mainFragment_to_addFragment"
             app:destination="@id/addFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_editFragment"
-            app:destination="@id/editFragment" />
+            android:id="@+id/action_mainFragment_to_eventDetailsFragment"
+            app:destination="@id/eventDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.kostyakilroy.daysleft.add.AddFragment"
-        android:label="Добавить"
-        tools:layout="@layout/fragment_add" >
+        android:name="com.kostyakilroy.daysleft.views.AddFragment"
+        android:label="Добавить событие" >
         <action
             android:id="@+id/action_addFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:popUpTo="@id/addFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/editFragment"
-        android:name="com.kostyakilroy.daysleft.edit.EditFragment"
-        android:label="Изменить"
-        tools:layout="@layout/fragment_edit" >
+        android:id="@+id/eventDetailsFragment"
+        android:name="com.kostyakilroy.daysleft.views.EventDetailsFragment"
+        android:label="Детали"
+        tools:layout="@layout/fragment_event_details" >
         <action
-            android:id="@+id/action_editFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_eventDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
         <argument
-            android:name="id"
+            android:name="eventId"
             app:argType="integer" />
     </fragment>
 </navigation>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/event_details_image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/phase_3"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/contentDesc_mood_image" />
+
+        <View
+            android:id="@+id/barrier"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/event_details_image"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.kostyakilroy.daysleft.CustomInformationContainer
+            android:id="@+id/event_details_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:informationName="@string/container_name"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.kostyakilroy.daysleft.CustomInformationContainer
+            android:id="@+id/event_details_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:informationName="@string/container_description"
+            app:layout_constraintTop_toBottomOf="@id/event_details_name"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.kostyakilroy.daysleft.CustomInformationContainer
+            android:id="@+id/event_details_event_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:informationName="@string/event_start"
+            app:layout_constraintTop_toBottomOf="@id/event_details_description"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.kostyakilroy.daysleft.CustomInformationContainer
+            android:id="@+id/event_details_event_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:informationName="@string/event_end"
+            app:layout_constraintTop_toBottomOf="@id/event_details_event_start"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.kostyakilroy.daysleft.CustomInformationContainer
+            android:id="@+id/event_details_event_importance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:informationName="@string/container_importance"
+            app:layout_constraintTop_toBottomOf="@id/event_details_event_end"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/event_details_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/delete_button"
+            app:layout_constraintTop_toBottomOf="@id/event_details_event_importance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/event_details_edit_button"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/event_details_edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/edit_button"
+            app:layout_constraintTop_toBottomOf="@id/event_details_event_importance"
+            app:layout_constraintStart_toEndOf="@id/event_details_delete_button"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+

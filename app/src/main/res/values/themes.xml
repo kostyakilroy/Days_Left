@@ -1,31 +1,54 @@
-<resources>
-    <style name="Theme.DaysLeft" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">#F2f2f2</item>
-        <item name="colorOnPrimary">@android:color/black</item>
-        <item name="colorPrimaryContainer">#F3167D</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
-        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
-        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_light_background</item>
-        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
-        <item name="colorSurface">#fff</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@android:color/black</item>
-        <item name="colorOutline">@android:color/black</item>
-        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
-        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.DaysLeft" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:colorBackground">#f2f2f2</item>
+        <item name="textInputStyle">@style/CustomEditText</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
 
-        <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
+    <style name="Theme.DaysLeft" parent="Base.Theme.DaysLeft" />
+
+    <style name="CustomEditText" parent="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">true</item>
+
+        <item name="android:minWidth">@dimen/material_textinput_min_width</item>
+        <item name="android:maxWidth">@dimen/material_textinput_max_width</item>
+        <item name="boxBackgroundMode">none</item>
+        <item name="boxBackgroundColor">@null</item>
+        <item name="errorIconDrawable">@drawable/mtrl_ic_error</item>
+        <item name="errorIconTint">@color/mtrl_error</item>
+        <item name="endIconTint">@color/mtrl_outlined_icon_tint</item>
+        <item name="startIconTint">@color/mtrl_outlined_icon_tint</item>
+        <item name="boxCollapsedPaddingTop">0dp</item>
+        <item name="boxStrokeColor">@color/mtrl_outlined_stroke_color</item>
+        <item name="boxStrokeErrorColor">@color/mtrl_error</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+
+        <item name="counterTextAppearance">?attr/textAppearanceCaption</item>
+        <item name="counterOverflowTextAppearance">?attr/textAppearanceCaption</item>
+        <item name="errorTextAppearance">?attr/textAppearanceCaption</item>
+        <item name="helperTextTextAppearance">?attr/textAppearanceCaption</item>
+        <item name="hintTextAppearance">?attr/textAppearanceCaption</item>
+        <item name="placeholderTextAppearance">?attr/textAppearanceSubtitle1</item>
+        <item name="prefixTextAppearance">?attr/textAppearanceSubtitle1</item>
+        <item name="suffixTextAppearance">?attr/textAppearanceSubtitle1</item>
+
+        <item name="counterTextColor">@color/mtrl_indicator_text_color</item>
+        <item name="counterOverflowTextColor">@color/mtrl_error</item>
+        <item name="errorTextColor">@color/mtrl_error</item>
+        <item name="helperTextTextColor">@color/mtrl_indicator_text_color</item>
+        <!-- The color of the label when it is collapsed and the text field is active -->
+        <item name="hintTextColor">?attr/colorPrimary</item>
+        <item name="placeholderTextColor">@color/mtrl_indicator_text_color</item>
+        <item name="prefixTextColor">@color/mtrl_indicator_text_color</item>
+        <item name="suffixTextColor">@color/mtrl_indicator_text_color</item>
+        <!-- The color of the label in all other text field states (such as resting and disabled) -->
+        <item name="android:textColorHint">@color/black</item>
+
+        <item name="shapeAppearance">@null</item>
+        <item name="shapeAppearanceOverlay">@null</item>
     </style>
 </resources>

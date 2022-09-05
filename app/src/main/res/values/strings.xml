@@ -1,10 +1,31 @@
 <resources>
-    <string name="app_name">Days Left</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Memes Left</string>
+    <string name="container_name">Название</string>
+    <string name="container_description">Описание</string>
+    <string name="container_date">Дата</string>
+    <string name="container_importance">Важность</string>
+    <string name="container_repeat">Повторять</string>
+    <string name="add_button">Отслеживать</string>
+    <string name="event_start">Начальная дата</string>
+    <string name="event_end">Конечная дата</string>
+    <string name="edit_button">Изменить</string>
+    <string name="delete_button">Удалить</string>
+    <string name="contentDesc_mood_image">Mood Image</string>
+    <string name="contentDisc_add">Add</string>
+    <string name="days_left">Дней осталось</string>
+    <string name="recurring_events">Повторяющиеся даты</string>
+    <string name="basic_events">Обычные даты</string>
 
-    <string name="days_left">Дней %1$d</string>
-    <string name="start_date">Начальная дата: %1$s</string>
-    <string name="finish_date">Конечная дата: %1$s</string>
-    <string name="description">Описание:</string>
+    <string-array name="add_spinner_importance">
+        <item>Первая</item>
+        <item>Вторая</item>
+        <item>Третья</item>
+    </string-array>
+
+    <string-array name="add_spinner_repeating">
+        <item>Не повторять</item>
+        <item>Каждый день</item>
+        <item>Каждый месяц</item>
+        <item>Каждый год</item>
+    </string-array>
 </resources>
